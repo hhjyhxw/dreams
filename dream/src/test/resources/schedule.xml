@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<!--id:唯一标志
+		name:定时类的名称
+		description:定时类的功能描述 
+		classPath:定时类访问路径
+		invokeMethod:定时调度方法 
+		cronExpression:定时时间段表达式 -->
+	<schedules>
+		<schedule>
+			<id>1</id>
+			<name>downloadScheduler</name>
+			<description>每天下载对账单定时任务</description>
+			<classPath>com.hyzy.mall.scheduler.DownloadScheduler</classPath>
+			<invokeMethod>saveDownloadBill</invokeMethod>
+			<cronExpression>0 0 10 * * ?</cronExpression>
+		</schedule>
+		<schedule>
+			<id>2</id>
+			<name>updateRefundStatusScheduler</name>
+			<description>定时将退款状态为PROCESSING查出，并更新最新状态 </description>
+			<classPath>com.hyzy.mall.scheduler.UpdateRefundStatusScheduler</classPath>
+			<invokeMethod>updateHyzyRefundStatus</invokeMethod>
+			<cronExpression>0 0 6 * * ?</cronExpression>
+		</schedule>
+		<schedule>
+			<id>3</id>
+			<name>weDownloadRefundService</name>
+			<description>找出海韵之友还未制作退款功能之前，商户平台已经退款的流水单号，记录至数据库 </description>
+			<classPath>com.hyzy.mall.service.wechat.download.WeDownloadRefundService</classPath>
+			<invokeMethod>batchSynchroHyzyRefund</invokeMethod>
+			<cronExpression></cronExpression>
+		</schedule>
+		<schedule>
+			<id>4</id>
+			<name>weDownloadbillService</name>
+			<description>找出海韵之友以前的所有对账单 </description>
+			<classPath>com.hyzy.mall.service.wechat.download.WeDownloadbillService</classPath>
+			<invokeMethod>batchDownLoadBill</invokeMethod>
+			<cronExpression></cronExpression>
+		</schedule>
+	</schedules>
+</xml>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:/applicationContext.xml,
+			classpath*:/applicationContext-shiro.xml
+		</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>production</param-value>
+	</context-param>
+
+	<!-- 对Spring容器进行实例化 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 编码处理过滤器 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- URL 伪静态过滤 -->
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+	</filter>
+
+	<!-- 验证码图片生成 -->
+ 	<filter>
+		<filter-name>jCaptchaFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter> 
+	<!--
+	<filter>
+		<filter-name>jCaptchaFilter</filter-name>
+		<filter-class>com.zhumeng.dream.captcha.JCaptchaFilter</filter-class>
+	</filter>
+	-->
+	<filter-mapping>
+		<filter-name>jCaptchaFilter</filter-name>
+		<url-pattern>/captcha.jpg</url-pattern>
+	</filter-mapping>
+
+	<!-- Hibernate Open Session In View filter -->
+	<filter>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping>
+
+
+	<!-- Shiro Security 权限验证 filter -->
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- Sitemesh装饰器 页面渲染 filter <filter> <filter-name>sitemeshFilter</filter-name> 
+		<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>sitemeshFilter</filter-name> <url-pattern>/*</url-pattern> 
+		</filter-mapping> -->
+
+	<filter>
+		<filter-name>struts</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+	</filter-mapping>
+
+
+	<!-- freemarker 引入 JSP 标签 -->
+	<servlet>
+		<servlet-name>JSPSupportServlet</servlet-name>
+		<servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
+	<!-- Spring刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
+
+	<!-- 屏蔽struts/webconsole.html -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>OGNLconsole</web-resource-name>
+			<url-pattern>/struts/webconsole.html</url-pattern>
+		</web-resource-collection>
+	</security-constraint>
+
+	<!-- 定义默认访问页 -->
+
+	<welcome-file-list>
+		<!-- <welcome-file>index.html</welcome-file>-->
+		<welcome-file>index.jsp</welcome-file>
+		<!-- <welcome-file>index.action</welcome-file> -->
+	</welcome-file-list>
+	
+	<!--页面通用压缩-->
+	<filter>
+		<filter-name>compressingFilter</filter-name>
+		<filter-class>com.planetj.servlet.filter.compression.CompressingFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>compressingFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>compressingFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	
+
+	<!-- 出错页面定义 -->
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error_page.html</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error_500.html</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error_404.html</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error_page_403.html</location>
+	</error-page>
+	<error-page>
+		<error-code>401</error-code>
+		<location>/error_page_access_denied.html</location>
+	</error-page>
+</web-app>

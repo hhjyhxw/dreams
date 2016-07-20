@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2.1改为2.3 -->
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.convention.default.parent.package" value="basePackage" />
+	<constant name="struts.convention.package.locators" value="action" />
+	<constant name="struts.convention.package.locators.basePackage" value="com.zhumeng.dream" />
+
+ 	<!-- 更新struts2.3.16.3版本添加       begin -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.convention.action.mapallmatches" value="true"/>
+	
+	<!-- end -->
+	<!-- 是否显示详细错误信息 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 国际化资源文件名称 -->
+	<constant name="struts.custom.i18n.resources" value="i18n" />
+	<!-- 是否自动加载国际化资源文件  -->
+	<constant name="struts.i18n.reload" value="false" />
+	<!-- convention类重新加载 -->
+	<constant name="struts.convention.classes.reload" value="false" />
+	<!-- 浏览器是否缓存静态内容 -->
+	<constant name="struts.serve.static.browserCache" value="true" />
+	<!-- 配置使用Spring管理Action -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- <constant name="struts.objectFactory.spring.autoWire" value="name" /> -->
+	<!-- 上传文件大小限制设置 -->
+	<constant name="struts.multipart.maxSize" value="10485760" />
+	<!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir
+    <constant name="struts.multipart.saveDir " value="D:/tmp" />
+	 -->
+	<!-- 主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 编码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 后缀 -->
+	<constant name="struts.action.extension" value="action,ajax" />
+	
+	<!-- 结果资源的路径 -->
+	<constant name="struts.convention.result.path" value="/WEB-INF/template/" />
+	<!-- actionURL资源分隔符 -->
+	<constant name="struts.convention.action.name.separator" value="_" /> 
+	
+    <constant name="struts.freemarker.manager.classname" value="freemarkerManager" />
+ 
+ 	<!-- 用于CRUD Action的parent package -->
+	<package name="basePackage" extends="convention-default">
+		<!-- 基于paramsPrepareParamsStack,增加store interceptor保证actionMessage在redirect后不会丢失 -->
+		<interceptors>
+			<!-- token注入拦截器 -->
+			<interceptor name="injectionToken" class="com.zhumeng.dream.intercetors.TokenInjectionInterceptor"/>
+			<!-- 表单重复提交拦截器 -->
+			<interceptor name="invalidToken" class="com.zhumeng.dream.intercetors.TokenAtionInterceptor"/>
+			<!-- 去除参数前后空格拦截器 -->
+			<interceptor name="trimInterceptor" class="com.zhumeng.dream.intercetors.TrimInterceptor"></interceptor>
+			
+			<!-- 设置拦截器栈  -->
+			<interceptor-stack name="baseStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				<interceptor-ref name="paramsPrepareParamsStack" />
+				<interceptor-ref name="injectionToken" />
+				<interceptor-ref name="trimInterceptor" />
+				<interceptor-ref name="trimInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="baseStack" />
+		<!-- 捕获全局异常  -->
+		<global-results>
+			<result name="exception" >/WEB-INF/template/exception.ftl</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping result="unauthorized" exception="org.apache.shiro.authz.UnauthorizedException" />
+		</global-exception-mappings>
+	</package>
+</struts>

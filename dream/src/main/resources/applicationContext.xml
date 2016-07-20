@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:ehcache="http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring
+	http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/aop   
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+	default-lazy-init="true">
+
+	<description>Spring公共配置 </description>
+
+	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.zhumeng.dream"></context:component-scan>
+	
+	<!-- 不管什么情况，srping aop涉及的bean都使用spring 容器管理 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!-- spring容器实例化bean -->
+    <!-- 实体bean oap拦截器  -->
+    <bean id="entityInterceptor" class="com.zhumeng.dream.intercetors.EntityInterceptor"/>
+     <!-- struts2 集成Freemarker 管理器  -->
+    <bean id="freemarkerManager" class="com.zhumeng.dream.freemarker.Struts2ExtendedFreemarkerManager"/>
+
+	
+	
+	<!-- 配置JCaptcha验证码功能 -->
+	<bean id="captchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+		<property name="captchaEngine">
+		 	<bean class="com.zhumeng.dream.captcha.JCaptchaEngine" /> 
+		</property>
+		<!-- 验证码过期时间 -->
+		<property name="minGuarantedStorageDelayInSeconds" value="600" />
+	</bean>
+	
+    <!-- Hibernate配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="entityInterceptor" ref="entityInterceptor" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="namingStrategy">
+			<bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+		</property>
+<!-- 		<PROPERTY NAME="SCHEMAUPDATE">   -->
+<!--       		<VALUE>TRUE</VALUE>   -->
+<!--  		</PROPERTY>  -->
+		<property name="hibernateProperties">
+			<props>
+				 <!--<prop key="hibernate.dialect">${hibernate.dialect}</prop>--> 
+				 <!-- <prop key="hibernate.dialect">com.zhumeng.dream.orm.hibernate.Oracle11gDialect</prop>-->
+				 
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>	
+				<prop key="hibernate.cache.provider_configuration_file_resource_path">/ehcache/ehcache.xml</prop>
+				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.zhumeng.dream.entity</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 事务管理器配置,单数据源事务 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+    <!-- 事务管理器, Jdbc单数据源事务 -->
+	<bean id="jdbcTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource"><ref bean="dataSource"/></property>
+    </bean>
+    
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+
+    <!-- 以静态变量保存ApplicationContext -->
+ 	<bean class="com.zhumeng.dream.util.spring.SpringContextHolder" lazy-init="false" />
+ 	
+ 	 <!--
+	 	<ehcache:annotation-driven cache-manager="ehCacheManager" />
+	    <bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+			<property name="configLocation" value="classpath:/ehcache/ehcache.xml" />
+		</bean>
+	 -->
+	<!-- production环境 -->
+ 	<beans profile="production">
+ 		<!-- 原来的配置文件 -->
+ 		<!--  <context:property-placeholder ignore-unresolvable="true"
+			location="classpath*:/application.properties" /> -->
+		<!-- 更改后的配置文件 -->		
+		   <!--对application.properties配置文件中的指定属性加密后，进行解密-->
+        <!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <bean id="propertyConfigurer" class="com.zhumeng.dream.util.spring.EncryptablePropertyPlaceholderConfigurer">	
+        	
+        	<property name="locations">
+            <list>
+                <value>classpath*:/application.properties</value>                        
+            </list>
+        </property>
+        </bean>
+        
+		<!-- 数据源配置, 使用DBCP数据库连接池 -->
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+			<!-- Connection Info -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+		
+			<!-- Connection Pooling Info -->
+			<property name="maxActive" value="${dbcp.maxActive}" />
+			<property name="maxIdle" value="${dbcp.maxIdle}" />
+			<property name="defaultAutoCommit" value="false" />
+			<!-- 连接Idle一个小时后超时 -->
+			<property name="timeBetweenEvictionRunsMillis" value="3600000" />
+			<property name="minEvictableIdleTimeMillis" value="3600000" />
+		</bean>
+		
+		<!-- 数据源配置,使用应用服务器的数据库连接池 -->
+		<!--<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/ExampleDB" />-->
+	</beans>
+	
+	
+	<!-- unit test环境 -->
+	<beans profile="test">
+	 	<context:property-placeholder ignore-unresolvable="true"
+			location="classpath*:/application.test.properties" />	
+		
+		<!-- 数据源配置, 使用DBCP数据库连接池 -->
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+			<!-- Connection Info -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+		
+			<!-- Connection Pooling Info -->
+			<property name="maxActive" value="${dbcp.maxActive}" />
+			<property name="maxIdle" value="${dbcp.maxIdle}" />
+			<property name="defaultAutoCommit" value="false" />
+			<!-- 连接Idle一个小时后超时 -->
+			<property name="timeBetweenEvictionRunsMillis" value="3600000" />
+			<property name="minEvictableIdleTimeMillis" value="3600000" />
+		</bean>
+	</beans>
+	
+</beans>

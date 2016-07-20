@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<diskStore path="java.io.tmpdir/ehcache/mall" />
+	
+	<!-- DefaultCache setting. -->
+	<defaultCache maxElementsInMemory="10000" memoryStoreEvictionPolicy="LRU" eternal="false"
+		timeToIdleSeconds="300" timeToLiveSeconds="300" overflowToDisk="false" diskPersistent="false" />
+		
+	<!-- Special objects setting. -->
+	<!-- Refresh setting every hour. -->
+	
+	<!--<cache name="setting" maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false" overflowToDisk="false" maxElementsOnDisk="1000000" />
+		
+			
+	<cache name="com.hyzy.mall.entity.GoodsCategory" maxElementsInMemory="10000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false" overflowToDisk="false" maxElementsOnDisk="1000000" />-->
+		
+</ehcache>
