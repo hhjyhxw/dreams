@@ -80,10 +80,8 @@ $().ready( function() {
 			 $.dialog({type: "warn", content: "超过最大登陆次数，账号被临时锁定", modal: true, autoCloseTime: 1500});
 		<#elseif shiroLoginFailure == "org.apache.shiro.authc.IncorrectCredentialsException">
 		    $.dialog({type: "warn", content: "用户名或密码错误", modal: true, autoCloseTime: 1500});
-		<#elseif shiroLoginFailure == "com.zhumeng.dream.security.IncorrectCaptchaException">	
+		<#elseif shiroLoginFailure == "com.hyzy.mall.security.IncorrectCaptchaException">	
 			$.dialog({type: "warn", content: "验证码错误!", modal: true, autoCloseTime: 15000});
-		<#elseif shiroLoginFailure == "com.zhumeng.dream.security.AccountNotAbleException">	
-			$.dialog({type: "warn", content: "账号未启用!", modal: true, autoCloseTime: 15000});
 		<#elseif shiroLoginFailure == "com.haojie.modules.security.LockAccountException">
 			$.dialog({type: "warn", content: "账号被锁定，禁止登陆", modal: true, autoCloseTime: 1500});	
 		<#elseif shiroLoginFailure == "org.apache.shiro.authc.AuthenticationException">	

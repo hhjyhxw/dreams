@@ -14,7 +14,7 @@
 		<property name="cacheManager" ref="shiroEhcacheManager" />
 	</bean>
 
-	<!-- 項目自定义的Realm, 所有accountService依赖的dao都需要用depends-on声明 -->
+	<!-- 項目自定义的Realm, 所有adminServiceImpl依赖的dao都需要用depends-on声明 -->
 	<bean id="shiroDbRealm" class="com.zhumeng.dream.security.ShiroDbRealm" depends-on="adminDaoImpl,roleDaoImpl">
 		<property name="adminServiceImpl" ref="adminServiceImpl"/>
 	</bean>

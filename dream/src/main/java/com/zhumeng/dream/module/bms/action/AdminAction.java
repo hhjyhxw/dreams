@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javax.annotation.Resource;
 
@@ -20,6 +22,7 @@ import com.zhumeng.dream.module.bms.service.AdminService;
 import com.zhumeng.dream.module.bms.service.RoleService;
 import com.zhumeng.dream.orm.Page;
 import com.zhumeng.dream.orm.PropertyFilter;
+import com.zhumeng.dream.util.others.StringUtil;
 import com.zhumeng.dream.util.reflection.ReflectionUtils;
 import com.zhumeng.dream.util.struts.Struts2Utils;
 @Namespace("/bms")
@@ -151,8 +154,13 @@ public class AdminAction extends CrudActionSupport<Admin>{
 	@Override
 	public String delete() throws Exception {
 		try{
-			String info = adminServiceImpl.delete(ids);
-		    ajaxJsonSuccessMessage("删除成功！");
+			//String info = adminServiceImpl.delete(ids);
+			String result = adminServiceImpl.delete(ids);
+			if(StringUtil.checkObj(result)){
+				ajaxJsonErrorMessage(result);
+			}else{
+				ajaxJsonSuccessMessage("删除成功！");
+			}
 		}catch(Exception e){
 			ajaxJsonErrorMessage("删除失败！");
 		}
@@ -229,7 +237,7 @@ public class AdminAction extends CrudActionSupport<Admin>{
 	
 	/**
 	 * 修改个人资料
-	 * @autor zhanghaitao
+	 * @autor 
 	 * @return
 	 * @throws Exception
 	 */
@@ -373,4 +381,16 @@ public class AdminAction extends CrudActionSupport<Admin>{
 		this.currentAdmin = currentAdmin;
 	}
 
+    public static void main(String[] args) {  
+        //方法一:利用locale获取默认使用的资源文件  
+       // Locale local  = Locale.getDefault();  
+       // ResourceBundle localResource = ResourceBundle.getBundle("resourse");  
+          
+        //方法二：直接在资源文件名后面加上"_语言_国家"，如_zh_CN、_en_US等，使用指定的资源文件  
+    	//Thread.currentThread().getContextClassLoader().getResource("i18n_zh_CN.properties");
+        ResourceBundle localResource = ResourceBundle.getBundle("i18n_zh_CN");//"i18n_zh_CN.properties");  
+          
+        String val = localResource.getString("TradeStatus.unprocessed");  
+        System.out.println(val);     
+    }  
 }

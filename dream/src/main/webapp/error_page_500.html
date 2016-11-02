@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>500页面</title>
+<link href="/template/webshop/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/template/webshop/css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/template/common/js/jquery.js"></script>
+<script type="text/javascript" src="/template/webshop/js/base.js"></script>
+<script type="text/javascript" src="/template/webshop/js/shop.js"></script>
+</head>
+<body>
+<div>
+	<div id="header" class="t_nav">
+	<div class=" w_kuan hyem">
+        <ul class="fr" id="sddm">
+                        <li id="headerMemberCenter"><a  href="/phonemb/center!index.action">管理中心</a>|</li>
+            <li id="headerTradeCenter"><a  href="/member/trade!list.action">我的订单</a>|</li>
+            <li><a href="/html/htmlCenter.html">帮助中心</a></li>
+        </ul>
+      		<a href="javascript:addFavorite('http://localhost','海韵之友')" class="sc_ico" style="padding-left:20px;">收藏海韵之友</a>
+      		&nbsp;&nbsp;&nbsp;您好,<span id="headerLoginMemberUsername"></span>欢迎来到海韵之友!   
+      		<a id="headerShowLoginWindow" href="/html/login.html">请登录</a> 
+      		<a id="headerLogout" href="/shop/login!unLogin.action">【退出】</a> <em>| </em>
+      		<a id="headerShowRegisterWindow" href="/html/mRegCenter.html">免费注册</a>   
+    </div>
+	</div>
+    
+    <div class="er_search">
+        <div class="w_kuan sousuo">
+            <div class="logo fl"><a href="http://www.haiyunzy.com/"><img src="/images/logo.jpg" alt="" /></a></div>
+            <div class="search_bar fl">
+                <form id="goodsSearchForm" action="/shop/goods!search.action" method="post">
+                 <input id="goodsSearchKeyword"  type="text" class="shuru_txt fl" name="shotkw" value="" /> 
+                <input type="submit" class="btn_search fl" value=""/>
+                <div class="clear"></div>
+                <p>
+                <a href="/shop/goods!search.action?shotkw=%E7%9C%9F%E9%BE%99%E9%A6%99%E7%83%9F" style="color:#ffa82c;" >真龙香烟</a> 
+                </p>
+                </form>
+            </div>
+           <div class="fr gouche" id="gcar" ><p><em>购物车</em>（<b><span id="headerCarItemQuantity"></span></b>）</p>
+                
+            </div>
+            <div id="carItemList" class="yesnr">
+            	<div class="b" style="padding:0px 10px 5px 10px;">最近加入的商品：</div>
+            	<div id="indexCarItemHtml"  class="car_login"></div>
+            </div>
+        </div>
+    </div>
+<div class="clear"></div>
+<div class="shopcar mt20">
+ 	<div class="clear"></div>
+    <div class="error2 mt20" style="padding:30px 0px;">
+    	<p class="">亲，我们正在努力抢修中，<br />请稍后再来！</p>
+    <input type="button" onclick="window.history.back(); return false;" class="return_btn" /></div>
+</div>
+<div class="clear"></div>
+<div class="webwap" style="margin-top:15px;">
+    	<ul class="w_kuan">
+        	<li><strong>新手上路</strong><a href="#">会员注册</a><a href="#">分销流程</a><a href="#">返利说明</a><a href="#">热点问题</a></li>
+            <li><strong>合作模式</strong><a href="#">平台供销</a><a href="#">代发购销</a><a href="#">购销</a></li>
+            <li><strong>支付/物流/售后</strong><a href="#">结算方式</a><a href="#">运输方式</a><a href="#">售后服务</a></li>
+            <li><strong>相关条款</strong><a href="#">注册条款</a></li>
+        </ul>
+</div>
+<div class="mt15 copyright lh25 tc">
+    	<a href="#">关于海韵之友</a>     |     <a href="#">联系我们</a>     |     <a href="#">合作伙伴</a>     |     <a href="#">帮助中心</a>
+<br />Copyright © 2013 http://www.haiyunzy.com/  广西省南宁市<br />版权所有  桂ICP备XXXXXXX
+</div>
+</div>
+</body>
+</html>

@@ -7,20 +7,20 @@ import org.apache.shiro.authc.AuthenticationException;
  * @author Administrator
  *
  */
-public class IncorrectCaptchaException extends AuthenticationException {
+public class AccountNotAbleException extends AuthenticationException {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public IncorrectCaptchaException() {
+	public AccountNotAbleException() {
          super();
     }
-    public IncorrectCaptchaException(String message, Throwable cause) {
+    public AccountNotAbleException(String message, Throwable cause) {
          super(message, cause);
     }
-    public IncorrectCaptchaException(String message) {
+    public AccountNotAbleException(String message) {
          super(message);
     }
-    public IncorrectCaptchaException(Throwable cause) {
+    public AccountNotAbleException(Throwable cause) {
          super(cause);
     }
 }

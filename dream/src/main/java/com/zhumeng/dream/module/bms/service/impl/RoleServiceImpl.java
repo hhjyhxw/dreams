@@ -17,7 +17,7 @@ import com.zhumeng.dream.orm.PropertyFilter;
 @Transactional
 public class RoleServiceImpl implements RoleService{
 
-	@Resource(name="roleDaoImpl")
+	@Resource//(name="roleDaoImpl")
 	private RoleDao roleDaoImpl;
 	
 	public void saveOrUpdate(Role entity){

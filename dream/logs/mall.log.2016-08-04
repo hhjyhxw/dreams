@@ -1,0 +1,785 @@
+2016-08-04 12:54:39,989 [main] INFO  [org.mortbay.log] - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2016-08-04 12:54:40,089 [main] INFO  [org.mortbay.log] - jetty-6.1.26
+2016-08-04 12:54:40,991 [main] INFO  [/] - Initializing Spring root WebApplicationContext
+2016-08-04 12:54:40,991 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization started
+2016-08-04 12:54:41,245 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing Root WebApplicationContext: startup date [Thu Aug 04 12:54:41 CST 2016]; root of context hierarchy
+2016-08-04 12:54:41,361 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/F:/workspace/dream/target/classes/applicationContext.xml]
+2016-08-04 12:54:42,379 [main] INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'entityInterceptor': replacing [Generic bean: class [com.zhumeng.dream.intercetors.EntityInterceptor]; scope=singleton; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\workspace\dream\target\classes\com\zhumeng\dream\intercetors\EntityInterceptor.class]] with [Generic bean: class [com.zhumeng.dream.intercetors.EntityInterceptor]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/F:/workspace/dream/target/classes/applicationContext.xml]]
+2016-08-04 12:54:42,445 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/F:/workspace/dream/target/classes/applicationContext-shiro.xml]
+2016-08-04 12:54:42,863 [main] INFO  [com.zhumeng.dream.util.spring.EncryptablePropertyPlaceholderConfigurer] - Loading properties file from URL [file:/F:/workspace/dream/target/classes/application.properties]
+2016-08-04 12:54:43,226 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:54:43,396 [main] INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@8135a0: defining beans [systemLogAspect,jCaptchaFilter,entityInterceptor,adminDaoImpl,roleDaoImpl,adminServiceImpl,roleServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,freemarkerManager,captchaService,sessionFactory,transactionManager,jdbcTransactionManager,jdbcTemplate,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,com.zhumeng.dream.util.spring.SpringContextHolder#0,propertyConfigurer,dataSource,securityManager,shiroDbRealm,shiroFilter,shiroEhcacheManager,lifecycleBeanPostProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2016-08-04 12:54:43,412 [main] ERROR [org.springframework.web.context.ContextLoader] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilter' defined in URL [file:/F:/workspace/dream/target/classes/applicationContext-shiro.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.config.internalTransactionAdvisor': Cannot resolve reference to bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' while setting bean property 'transactionAttributeSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:452)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:740)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:449)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:384)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:283)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:549)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1282)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:518)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:499)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.zhumeng.dream.Start.main(Start.java:13)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.config.internalTransactionAdvisor': Cannot resolve reference to bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' while setting bean property 'transactionAttributeSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:86)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:100)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:84)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:107)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:278)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:880)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:852)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:446)
+	... 19 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 36 more
+Caused by: java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:301)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:207)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:193)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.checkReadyToMatch(AspectJExpressionPointcut.java:182)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:163)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:209)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:263)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:295)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:117)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:87)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:68)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:407)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1461)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	... 42 more
+2016-08-04 12:54:43,428 [main] ERROR [org.mortbay.log] - Failed startup of context org.mortbay.jetty.webapp.WebAppContext@1ae615a{/,src/main/webapp}
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilter' defined in URL [file:/F:/workspace/dream/target/classes/applicationContext-shiro.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.config.internalTransactionAdvisor': Cannot resolve reference to bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' while setting bean property 'transactionAttributeSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:452)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:740)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:449)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:384)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:283)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:549)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1282)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:518)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:499)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.zhumeng.dream.Start.main(Start.java:13)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.config.internalTransactionAdvisor': Cannot resolve reference to bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' while setting bean property 'transactionAttributeSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:86)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:100)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:84)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:107)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:278)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:880)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:852)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:446)
+	... 19 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 36 more
+Caused by: java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:301)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:207)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:193)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.checkReadyToMatch(AspectJExpressionPointcut.java:182)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:163)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:209)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:263)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:295)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:117)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:87)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:68)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:407)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1461)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	... 42 more
+2016-08-04 12:54:43,428 [main] ERROR [org.mortbay.log] - Nested in org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilter' defined in URL [file:/F:/workspace/dream/target/classes/applicationContext-shiro.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.config.internalTransactionAdvisor': Cannot resolve reference to bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' while setting bean property 'transactionAttributeSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0': Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog:
+java.lang.IllegalArgumentException: error Type referred to is not an annotation type: com$hyzy$mall$annotation$SystemServiceLog
+	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:301)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:207)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:193)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.checkReadyToMatch(AspectJExpressionPointcut.java:182)
+	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:163)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:209)
+	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:263)
+	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:295)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:117)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:87)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:68)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:407)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1461)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:86)
+	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:100)
+	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:84)
+	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:107)
+	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:278)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:880)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:852)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:446)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:740)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:449)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:384)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:283)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:549)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1282)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:518)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:499)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.zhumeng.dream.Start.main(Start.java:13)
+2016-08-04 12:54:43,428 [main] INFO  [org.mortbay.log] - Started SocketConnector@0.0.0.0:8081
+2016-08-04 12:56:23,834 [main] INFO  [org.mortbay.log] - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2016-08-04 12:56:23,896 [main] INFO  [org.mortbay.log] - jetty-6.1.26
+2016-08-04 12:56:24,412 [main] INFO  [/] - Initializing Spring root WebApplicationContext
+2016-08-04 12:56:24,412 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization started
+2016-08-04 12:56:24,480 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing Root WebApplicationContext: startup date [Thu Aug 04 12:56:24 CST 2016]; root of context hierarchy
+2016-08-04 12:56:24,527 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/F:/workspace/dream/target/classes/applicationContext.xml]
+2016-08-04 12:56:25,028 [main] INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'entityInterceptor': replacing [Generic bean: class [com.zhumeng.dream.intercetors.EntityInterceptor]; scope=singleton; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\workspace\dream\target\classes\com\zhumeng\dream\intercetors\EntityInterceptor.class]] with [Generic bean: class [com.zhumeng.dream.intercetors.EntityInterceptor]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/F:/workspace/dream/target/classes/applicationContext.xml]]
+2016-08-04 12:56:25,065 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/F:/workspace/dream/target/classes/applicationContext-shiro.xml]
+2016-08-04 12:56:25,250 [main] INFO  [com.zhumeng.dream.util.spring.EncryptablePropertyPlaceholderConfigurer] - Loading properties file from URL [file:/F:/workspace/dream/target/classes/application.properties]
+2016-08-04 12:56:25,451 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:25,459 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:25,751 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'entityInterceptor' of type [class com.zhumeng.dream.intercetors.EntityInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:25,829 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'dataSource' of type [class org.apache.commons.dbcp.BasicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:25,829 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.hibernate.cfg.ImprovedNamingStrategy#1d13604' of type [class org.hibernate.cfg.ImprovedNamingStrategy] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:25,867 [main] INFO  [org.hibernate.cfg.annotations.Version] - Hibernate Annotations 3.5.5-Final
+2016-08-04 12:56:25,898 [main] INFO  [org.hibernate.cfg.Environment] - Hibernate 3.5.5-Final
+2016-08-04 12:56:25,898 [main] INFO  [org.hibernate.cfg.Environment] - hibernate.properties not found
+2016-08-04 12:56:25,914 [main] INFO  [org.hibernate.cfg.Environment] - Bytecode provider name : javassist
+2016-08-04 12:56:25,914 [main] INFO  [org.hibernate.cfg.Environment] - using JDK 1.4 java.sql.Timestamp handling
+2016-08-04 12:56:25,998 [main] INFO  [org.hibernate.annotations.common.Version] - Hibernate Commons Annotations 3.2.0.Final
+2016-08-04 12:56:26,114 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Admin
+2016-08-04 12:56:26,152 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Admin on table t_admin
+2016-08-04 12:56:26,267 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Member
+2016-08-04 12:56:26,282 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Member on table t_member
+2016-08-04 12:56:26,282 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Navigation
+2016-08-04 12:56:26,282 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Navigation on table t_navigation
+2016-08-04 12:56:26,282 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Role
+2016-08-04 12:56:26,282 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Role on table t_role
+2016-08-04 12:56:26,282 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Supplier
+2016-08-04 12:56:26,282 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Supplier on table t_supplier
+2016-08-04 12:56:26,351 [main] INFO  [org.hibernate.cfg.AnnotationConfiguration] - Hibernate Validator not found: ignoring
+2016-08-04 12:56:26,351 [main] INFO  [org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean] - Building new Hibernate SessionFactory
+2016-08-04 12:56:26,367 [main] INFO  [org.hibernate.cfg.search.HibernateSearchEventListenerRegister] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+2016-08-04 12:56:26,383 [main] INFO  [org.hibernate.connection.ConnectionProviderFactory] - Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+2016-08-04 12:56:26,968 [main] INFO  [org.hibernate.cfg.SettingsFactory] - RDBMS: MySQL, version: 5.5.37
+2016-08-04 12:56:26,968 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.13 ( Revision: ${bzr.revision-id} )
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.dialect.Dialect] - Using dialect: org.hibernate.dialect.MySQLDialect
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.engine.jdbc.JdbcSupportLoader] - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.transaction.TransactionFactoryFactory] - Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.transaction.TransactionManagerLookupFactory] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Automatic flush during beforeCompletion(): disabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Automatic session close at end of transaction: disabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC batch size: 15
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC batch updates for versioned data: disabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Scrollable result sets: enabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC3 getGeneratedKeys(): enabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Connection release mode: auto
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Maximum outer join fetch depth: 2
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Default batch fetch size: 1
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Generate SQL with comments: disabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Order SQL updates by primary key: disabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Order SQL inserts for batching: disabled
+2016-08-04 12:56:27,034 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+2016-08-04 12:56:27,052 [main] INFO  [org.hibernate.hql.ast.ASTQueryTranslatorFactory] - Using ASTQueryTranslatorFactory
+2016-08-04 12:56:27,052 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query language substitutions: {}
+2016-08-04 12:56:27,052 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JPA-QL strict compliance: disabled
+2016-08-04 12:56:27,052 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Second-level cache: enabled
+2016-08-04 12:56:27,052 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query cache: enabled
+2016-08-04 12:56:27,052 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Cache region factory : org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
+2016-08-04 12:56:27,052 [main] INFO  [org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge] - Cache provider: net.sf.ehcache.hibernate.SingletonEhCacheProvider
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Optimize cache for minimal puts: disabled
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Structured second-level cache entries: disabled
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query cache factory: org.hibernate.cache.StandardQueryCacheFactory
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Statistics: disabled
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Deleted entity synthetic identifier rollback: disabled
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Default entity-mode: pojo
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Named query checking : enabled
+2016-08-04 12:56:27,083 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2016-08-04 12:56:27,152 [main] INFO  [org.hibernate.impl.SessionFactoryImpl] - building session factory
+2016-08-04 12:56:27,183 [main] WARN  [net.sf.ehcache.config.ConfigurationFactory] - No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/D:/installtools/maven/apache-maven-3.2.5/repository/net/sf/ehcache/ehcache/1.5.0/ehcache-1.5.0.jar!/ehcache-failsafe.xml
+2016-08-04 12:56:27,850 [main] WARN  [net.sf.ehcache.hibernate.SingletonEhCacheProvider] - Could not find a specific ehcache configuration for cache named [com.zhumeng.dream.entity.Navigation]; using defaults.
+2016-08-04 12:56:28,085 [main] INFO  [org.hibernate.impl.SessionFactoryObjectFactory] - Not binding factory to JNDI, no JNDI name configured
+2016-08-04 12:56:28,149 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - Running hbm2ddl schema update
+2016-08-04 12:56:28,149 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - fetching database metadata
+2016-08-04 12:56:28,151 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - updating schema
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_admin
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [department, modify_date, locked_date, login_ip, password, id, is_account_expired, is_account_locked, login_failure_count, username, create_date, email, name, openid, supplierid, is_account_enabled, login_date]
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_admin_role
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [role_id, admin_id]
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: [fke6603411748f9edd, fke6603411cb55f617]
+2016-08-04 12:56:28,301 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [fke6603411748f9edd, fke6603411cb55f617]
+2016-08-04 12:56:28,316 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_member
+2016-08-04 12:56:28,316 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [birth, usable_score, open_id, grade_name, deposit, is_mobile_activate, password_recover_key, locked_date, score, head_img_url, password, area_store, wei_xin_gh, id, union_id, create_date, company_name, gender, longitude, login_date, mobile_verify_code, modify_date, register_ip, login_ip, is_account_locked, login_failure_count, user_name, nick, address, grade_id, latitude, is_account_enabled, mobile]
+2016-08-04 12:56:28,316 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:56:28,316 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_navigation
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [is_visible, id, create_date, is_blank_target, name, modify_date, order_list, url, navigation_position]
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_role
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [id, create_date, description, name, modify_date, is_system, authority_list_store]
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:56:28,332 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [name, primary]
+2016-08-04 12:56:28,354 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_supplier
+2016-08-04 12:56:28,354 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [city_name, area_id, is_send_to, open_id, tag, appsecret, is_open, appid, supplier_img, contact, city_id, id, wei_xin_number, create_date, company_name, area_name, longitude, partner, support, province_id, modify_date, supplier_type, contact_phone, order_list, partnerkey, ept_merchantid, province_name, address, delivery_scope, wei_xin_name, latitude, business_hours]
+2016-08-04 12:56:28,354 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:56:28,354 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:56:28,354 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - schema update complete
+2016-08-04 12:56:28,370 [main] INFO  [org.hibernate.cache.UpdateTimestampsCache] - starting update timestamps cache at region: org.hibernate.cache.UpdateTimestampsCache
+2016-08-04 12:56:28,370 [main] WARN  [net.sf.ehcache.hibernate.SingletonEhCacheProvider] - Could not find a specific ehcache configuration for cache named [org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+2016-08-04 12:56:28,370 [main] INFO  [org.hibernate.cache.StandardQueryCache] - starting query cache at region: org.hibernate.cache.StandardQueryCache
+2016-08-04 12:56:28,370 [main] WARN  [net.sf.ehcache.hibernate.SingletonEhCacheProvider] - Could not find a specific ehcache configuration for cache named [org.hibernate.cache.StandardQueryCache]; using defaults.
+2016-08-04 12:56:28,370 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'sessionFactory' of type [class org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:28,417 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'sessionFactory' of type [class org.hibernate.impl.SessionFactoryImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:28,432 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'adminDaoImpl' of type [class com.zhumeng.dream.module.bms.dao.impl.AdminDaoImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:28,470 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0' of type [class org.springframework.transaction.interceptor.TransactionInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:28,654 [main] WARN  [com.zhumeng.dream.util.reflection.ReflectionUtils] - AdminDaoImpl$$EnhancerByCGLIB$$dd755bf2's superclass not ParameterizedType
+2016-08-04 12:56:28,733 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'roleDaoImpl' of type [class com.zhumeng.dream.module.bms.dao.impl.RoleDaoImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:28,833 [main] WARN  [com.zhumeng.dream.util.reflection.ReflectionUtils] - RoleDaoImpl$$EnhancerByCGLIB$$a6270f05's superclass not ParameterizedType
+2016-08-04 12:56:28,886 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'adminServiceImpl' of type [class com.zhumeng.dream.module.bms.service.impl.AdminServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:29,888 [main] INFO  [com.octo.captcha.service.image.DefaultManageableImageCaptchaService] - Init com.octo.captcha.service.captchastore.FastHashMapCaptchaStore
+2016-08-04 12:56:30,357 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'com.zhumeng.dream.captcha.JCaptchaEngine#b2145c' of type [class com.zhumeng.dream.captcha.JCaptchaEngine] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,357 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'captchaService' of type [class com.octo.captcha.service.image.DefaultManageableImageCaptchaService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,357 [main] DEBUG [org.apache.shiro.spring.LifecycleBeanPostProcessor] - Initializing bean [shiroDbRealm]...
+2016-08-04 12:56:30,357 [main] DEBUG [org.apache.shiro.realm.AuthorizingRealm] - No authorizationCache instance set.  Checking for a cacheManager...
+2016-08-04 12:56:30,357 [main] INFO  [org.apache.shiro.realm.AuthorizingRealm] - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2016-08-04 12:56:30,357 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'shiroDbRealm' of type [class com.zhumeng.dream.security.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,389 [main] DEBUG [org.apache.shiro.spring.LifecycleBeanPostProcessor] - Initializing bean [shiroEhcacheManager]...
+2016-08-04 12:56:30,389 [main] DEBUG [org.apache.shiro.cache.ehcache.EhCacheManager] - cacheManager property not set.  Constructing CacheManager instance... 
+2016-08-04 12:56:30,389 [main] DEBUG [org.apache.shiro.io.ResourceUtils] - Opening resource from class path [ehcache/ehcache-shiro.xml]
+2016-08-04 12:56:30,420 [main] DEBUG [org.apache.shiro.cache.ehcache.EhCacheManager] - implicit cacheManager created successfully.
+2016-08-04 12:56:30,420 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'shiroEhcacheManager' of type [class org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,420 [main] DEBUG [org.apache.shiro.realm.AuthorizingRealm] - No authorizationCache instance set.  Checking for a cacheManager...
+2016-08-04 12:56:30,420 [main] DEBUG [org.apache.shiro.realm.AuthorizingRealm] - CacheManager [org.apache.shiro.cache.ehcache.EhCacheManager@ecb39d] has been configured.  Building authorization cache named [com.zhumeng.dream.security.ShiroDbRealm.authorizationCache]
+2016-08-04 12:56:30,420 [main] INFO  [org.apache.shiro.cache.ehcache.EhCacheManager] - Cache with name 'com.zhumeng.dream.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+2016-08-04 12:56:30,435 [main] INFO  [org.apache.shiro.cache.ehcache.EhCacheManager] - Added EhCache named [com.zhumeng.dream.security.ShiroDbRealm.authorizationCache]
+2016-08-04 12:56:30,458 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,574 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'com.zhumeng.dream.security.CaptchaFormAuthenticationFilter#1d7dfda' of type [class com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,589 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.apache.shiro.web.filter.authc.LogoutFilter#1a99b9a' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,589 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'util:map#26a58b' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,589 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'util:map#26a58b' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:56:30,636 [main] INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1b531a1: defining beans [jCaptchaFilter,entityInterceptor,adminDaoImpl,roleDaoImpl,adminServiceImpl,roleServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,freemarkerManager,captchaService,sessionFactory,transactionManager,jdbcTransactionManager,jdbcTemplate,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,com.zhumeng.dream.util.spring.SpringContextHolder#0,propertyConfigurer,dataSource,securityManager,shiroDbRealm,shiroFilter,shiroEhcacheManager,lifecycleBeanPostProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2016-08-04 12:56:30,636 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 6224 ms
+2016-08-04 12:56:30,689 [main] INFO  [/] - org.tuckey.web.filters.urlrewrite.UrlRewriteFilter ERROR: unable to find urlrewrite conf file at /WEB-INF/urlrewrite.xml
+2016-08-04 12:56:30,720 [main] DEBUG [org.apache.shiro.spring.web.ShiroFilterFactoryBean] - Found filter chain candidate filter 'jCaptchaFilter'
+2016-08-04 12:56:30,736 [main] DEBUG [org.apache.shiro.spring.web.ShiroFilterFactoryBean] - Creating Shiro Filter instance.
+2016-08-04 12:56:30,757 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/login.action] from String definition [authc]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/login.action] to filter [authc] with config [null]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/logout] from String definition [logout]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/logout] to filter [logout] with config [null]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/template/**] from String definition [anon]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/template/**] to filter [anon] with config [null]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/admin!list.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!list.action] to filter [authc] with config [null]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!list.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/admin!save.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!save.action] to filter [authc] with config [null]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!save.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/role!list.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!list.action] to filter [authc] with config [null]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!list.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/role!save.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!save.action] to filter [authc] with config [null]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!save.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/**] from String definition [authc]
+2016-08-04 12:56:30,758 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/**] to filter [authc] with config [null]
+2016-08-04 12:56:31,205 [main] INFO  [com.opensymphony.xwork2.config.providers.XmlConfigurationProvider] - Parsing configuration file [struts-default.xml]
+2016-08-04 12:56:31,374 [main] INFO  [com.opensymphony.xwork2.config.providers.XmlConfigurationProvider] - Parsing configuration file [struts-plugin.xml]
+2016-08-04 12:56:31,437 [main] INFO  [com.opensymphony.xwork2.config.providers.XmlConfigurationProvider] - Parsing configuration file [struts.xml]
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2016-08-04 12:56:31,458 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Loading global messages from [i18n]
+2016-08-04 12:56:31,474 [main] INFO  [org.apache.struts2.spring.StrutsSpringObjectFactory] - Initializing Struts-Spring integration...
+2016-08-04 12:56:31,474 [main] INFO  [com.opensymphony.xwork2.spring.SpringObjectFactory] - Setting autowire strategy to name
+2016-08-04 12:56:31,474 [main] INFO  [org.apache.struts2.spring.StrutsSpringObjectFactory] - ... initialized Struts-Spring integration successfully
+2016-08-04 12:56:32,256 [main] INFO  [/] -  [CompressingFilter/1.7] CompressingFilter has initialized
+2016-08-04 12:56:32,359 [main] WARN  [org.mortbay.log] - failed SocketConnector@0.0.0.0:8081: java.net.BindException: Address already in use: JVM_Bind
+2016-08-04 12:56:32,359 [main] WARN  [org.mortbay.log] - failed Server@6a5227: java.net.BindException: Address already in use: JVM_Bind
+2016-08-04 12:57:14,389 [main] INFO  [org.mortbay.log] - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2016-08-04 12:57:14,436 [main] INFO  [org.mortbay.log] - jetty-6.1.26
+2016-08-04 12:57:14,890 [main] INFO  [/] - Initializing Spring root WebApplicationContext
+2016-08-04 12:57:14,890 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization started
+2016-08-04 12:57:14,971 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing Root WebApplicationContext: startup date [Thu Aug 04 12:57:14 CST 2016]; root of context hierarchy
+2016-08-04 12:57:15,006 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/F:/workspace/dream/target/classes/applicationContext.xml]
+2016-08-04 12:57:15,491 [main] INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Overriding bean definition for bean 'entityInterceptor': replacing [Generic bean: class [com.zhumeng.dream.intercetors.EntityInterceptor]; scope=singleton; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\workspace\dream\target\classes\com\zhumeng\dream\intercetors\EntityInterceptor.class]] with [Generic bean: class [com.zhumeng.dream.intercetors.EntityInterceptor]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [file:/F:/workspace/dream/target/classes/applicationContext.xml]]
+2016-08-04 12:57:15,523 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from URL [file:/F:/workspace/dream/target/classes/applicationContext-shiro.xml]
+2016-08-04 12:57:15,723 [main] INFO  [com.zhumeng.dream.util.spring.EncryptablePropertyPlaceholderConfigurer] - Loading properties file from URL [file:/F:/workspace/dream/target/classes/application.properties]
+2016-08-04 12:57:15,923 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:15,923 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:16,077 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'entityInterceptor' of type [class com.zhumeng.dream.intercetors.EntityInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:16,121 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'dataSource' of type [class org.apache.commons.dbcp.BasicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:16,136 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.hibernate.cfg.ImprovedNamingStrategy#1d13604' of type [class org.hibernate.cfg.ImprovedNamingStrategy] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:16,152 [main] INFO  [org.hibernate.cfg.annotations.Version] - Hibernate Annotations 3.5.5-Final
+2016-08-04 12:57:16,152 [main] INFO  [org.hibernate.cfg.Environment] - Hibernate 3.5.5-Final
+2016-08-04 12:57:16,152 [main] INFO  [org.hibernate.cfg.Environment] - hibernate.properties not found
+2016-08-04 12:57:16,170 [main] INFO  [org.hibernate.cfg.Environment] - Bytecode provider name : javassist
+2016-08-04 12:57:16,173 [main] INFO  [org.hibernate.cfg.Environment] - using JDK 1.4 java.sql.Timestamp handling
+2016-08-04 12:57:16,239 [main] INFO  [org.hibernate.annotations.common.Version] - Hibernate Commons Annotations 3.2.0.Final
+2016-08-04 12:57:16,292 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Admin
+2016-08-04 12:57:16,308 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Admin on table t_admin
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Member
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Member on table t_member
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Navigation
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Navigation on table t_navigation
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Role
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Role on table t_role
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.AnnotationBinder] - Binding entity from annotated class: com.zhumeng.dream.entity.Supplier
+2016-08-04 12:57:16,377 [main] INFO  [org.hibernate.cfg.annotations.EntityBinder] - Bind entity com.zhumeng.dream.entity.Supplier on table t_supplier
+2016-08-04 12:57:16,439 [main] INFO  [org.hibernate.cfg.AnnotationConfiguration] - Hibernate Validator not found: ignoring
+2016-08-04 12:57:16,439 [main] INFO  [org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean] - Building new Hibernate SessionFactory
+2016-08-04 12:57:16,439 [main] INFO  [org.hibernate.cfg.search.HibernateSearchEventListenerRegister] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+2016-08-04 12:57:16,455 [main] INFO  [org.hibernate.connection.ConnectionProviderFactory] - Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+2016-08-04 12:57:16,677 [main] INFO  [org.hibernate.cfg.SettingsFactory] - RDBMS: MySQL, version: 5.5.37
+2016-08-04 12:57:16,677 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.13 ( Revision: ${bzr.revision-id} )
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.dialect.Dialect] - Using dialect: org.hibernate.dialect.MySQLDialect
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.engine.jdbc.JdbcSupportLoader] - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.transaction.TransactionFactoryFactory] - Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.transaction.TransactionManagerLookupFactory] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Automatic flush during beforeCompletion(): disabled
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Automatic session close at end of transaction: disabled
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC batch size: 15
+2016-08-04 12:57:16,693 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC batch updates for versioned data: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Scrollable result sets: enabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JDBC3 getGeneratedKeys(): enabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Connection release mode: auto
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Maximum outer join fetch depth: 2
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Default batch fetch size: 1
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Generate SQL with comments: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Order SQL updates by primary key: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Order SQL inserts for batching: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.hql.ast.ASTQueryTranslatorFactory] - Using ASTQueryTranslatorFactory
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query language substitutions: {}
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - JPA-QL strict compliance: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Second-level cache: enabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query cache: enabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Cache region factory : org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge] - Cache provider: net.sf.ehcache.hibernate.SingletonEhCacheProvider
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Optimize cache for minimal puts: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Structured second-level cache entries: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Query cache factory: org.hibernate.cache.StandardQueryCacheFactory
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Statistics: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Deleted entity synthetic identifier rollback: disabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Default entity-mode: pojo
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Named query checking : enabled
+2016-08-04 12:57:16,708 [main] INFO  [org.hibernate.cfg.SettingsFactory] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2016-08-04 12:57:16,740 [main] INFO  [org.hibernate.impl.SessionFactoryImpl] - building session factory
+2016-08-04 12:57:16,755 [main] WARN  [net.sf.ehcache.config.ConfigurationFactory] - No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/D:/installtools/maven/apache-maven-3.2.5/repository/net/sf/ehcache/ehcache/1.5.0/ehcache-1.5.0.jar!/ehcache-failsafe.xml
+2016-08-04 12:57:17,109 [main] WARN  [net.sf.ehcache.hibernate.SingletonEhCacheProvider] - Could not find a specific ehcache configuration for cache named [com.zhumeng.dream.entity.Navigation]; using defaults.
+2016-08-04 12:57:17,193 [main] INFO  [org.hibernate.impl.SessionFactoryObjectFactory] - Not binding factory to JNDI, no JNDI name configured
+2016-08-04 12:57:17,209 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - Running hbm2ddl schema update
+2016-08-04 12:57:17,209 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - fetching database metadata
+2016-08-04 12:57:17,209 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - updating schema
+2016-08-04 12:57:17,224 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_admin
+2016-08-04 12:57:17,224 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [department, modify_date, locked_date, login_ip, password, id, is_account_expired, is_account_locked, login_failure_count, username, create_date, email, name, openid, supplierid, is_account_enabled, login_date]
+2016-08-04 12:57:17,224 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:57:17,224 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_admin_role
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [role_id, admin_id]
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: [fke6603411748f9edd, fke6603411cb55f617]
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [fke6603411748f9edd, fke6603411cb55f617]
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_member
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [birth, usable_score, open_id, grade_name, deposit, is_mobile_activate, password_recover_key, locked_date, score, head_img_url, password, area_store, wei_xin_gh, id, union_id, create_date, company_name, gender, longitude, login_date, mobile_verify_code, modify_date, register_ip, login_ip, is_account_locked, login_failure_count, user_name, nick, address, grade_id, latitude, is_account_enabled, mobile]
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:57:17,240 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_navigation
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [is_visible, id, create_date, is_blank_target, name, modify_date, order_list, url, navigation_position]
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_role
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [id, create_date, description, name, modify_date, is_system, authority_list_store]
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:57:17,256 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [name, primary]
+2016-08-04 12:57:17,273 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - table found: test.t_supplier
+2016-08-04 12:57:17,273 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - columns: [city_name, area_id, is_send_to, open_id, tag, appsecret, is_open, appid, supplier_img, contact, city_id, id, wei_xin_number, create_date, company_name, area_name, longitude, partner, support, province_id, modify_date, supplier_type, contact_phone, order_list, partnerkey, ept_merchantid, province_name, address, delivery_scope, wei_xin_name, latitude, business_hours]
+2016-08-04 12:57:17,273 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - foreign keys: []
+2016-08-04 12:57:17,273 [main] INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] - indexes: [primary]
+2016-08-04 12:57:17,274 [main] INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] - schema update complete
+2016-08-04 12:57:17,277 [main] INFO  [org.hibernate.cache.UpdateTimestampsCache] - starting update timestamps cache at region: org.hibernate.cache.UpdateTimestampsCache
+2016-08-04 12:57:17,277 [main] WARN  [net.sf.ehcache.hibernate.SingletonEhCacheProvider] - Could not find a specific ehcache configuration for cache named [org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+2016-08-04 12:57:17,277 [main] INFO  [org.hibernate.cache.StandardQueryCache] - starting query cache at region: org.hibernate.cache.StandardQueryCache
+2016-08-04 12:57:17,277 [main] WARN  [net.sf.ehcache.hibernate.SingletonEhCacheProvider] - Could not find a specific ehcache configuration for cache named [org.hibernate.cache.StandardQueryCache]; using defaults.
+2016-08-04 12:57:17,277 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'sessionFactory' of type [class org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:17,324 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'sessionFactory' of type [class org.hibernate.impl.SessionFactoryImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:17,324 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'adminDaoImpl' of type [class com.zhumeng.dream.module.bms.dao.impl.AdminDaoImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:17,340 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0' of type [class org.springframework.transaction.interceptor.TransactionInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:17,456 [main] WARN  [com.zhumeng.dream.util.reflection.ReflectionUtils] - AdminDaoImpl$$EnhancerByCGLIB$$2699bfdb's superclass not ParameterizedType
+2016-08-04 12:57:17,478 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'roleDaoImpl' of type [class com.zhumeng.dream.module.bms.dao.impl.RoleDaoImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:17,509 [main] WARN  [com.zhumeng.dream.util.reflection.ReflectionUtils] - RoleDaoImpl$$EnhancerByCGLIB$$ef4b72ee's superclass not ParameterizedType
+2016-08-04 12:57:17,540 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'adminServiceImpl' of type [class com.zhumeng.dream.module.bms.service.impl.AdminServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:17,956 [main] INFO  [com.octo.captcha.service.image.DefaultManageableImageCaptchaService] - Init com.octo.captcha.service.captchastore.FastHashMapCaptchaStore
+2016-08-04 12:57:18,009 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'com.zhumeng.dream.captcha.JCaptchaEngine#b2145c' of type [class com.zhumeng.dream.captcha.JCaptchaEngine] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,009 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'captchaService' of type [class com.octo.captcha.service.image.DefaultManageableImageCaptchaService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,009 [main] DEBUG [org.apache.shiro.spring.LifecycleBeanPostProcessor] - Initializing bean [shiroDbRealm]...
+2016-08-04 12:57:18,009 [main] DEBUG [org.apache.shiro.realm.AuthorizingRealm] - No authorizationCache instance set.  Checking for a cacheManager...
+2016-08-04 12:57:18,009 [main] INFO  [org.apache.shiro.realm.AuthorizingRealm] - No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2016-08-04 12:57:18,009 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'shiroDbRealm' of type [class com.zhumeng.dream.security.ShiroDbRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,025 [main] DEBUG [org.apache.shiro.spring.LifecycleBeanPostProcessor] - Initializing bean [shiroEhcacheManager]...
+2016-08-04 12:57:18,025 [main] DEBUG [org.apache.shiro.cache.ehcache.EhCacheManager] - cacheManager property not set.  Constructing CacheManager instance... 
+2016-08-04 12:57:18,025 [main] DEBUG [org.apache.shiro.io.ResourceUtils] - Opening resource from class path [ehcache/ehcache-shiro.xml]
+2016-08-04 12:57:18,025 [main] DEBUG [org.apache.shiro.cache.ehcache.EhCacheManager] - implicit cacheManager created successfully.
+2016-08-04 12:57:18,025 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'shiroEhcacheManager' of type [class org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,025 [main] DEBUG [org.apache.shiro.realm.AuthorizingRealm] - No authorizationCache instance set.  Checking for a cacheManager...
+2016-08-04 12:57:18,025 [main] DEBUG [org.apache.shiro.realm.AuthorizingRealm] - CacheManager [org.apache.shiro.cache.ehcache.EhCacheManager@1f9a8c] has been configured.  Building authorization cache named [com.zhumeng.dream.security.ShiroDbRealm.authorizationCache]
+2016-08-04 12:57:18,025 [main] INFO  [org.apache.shiro.cache.ehcache.EhCacheManager] - Cache with name 'com.zhumeng.dream.security.ShiroDbRealm.authorizationCache' does not yet exist.  Creating now.
+2016-08-04 12:57:18,025 [main] INFO  [org.apache.shiro.cache.ehcache.EhCacheManager] - Added EhCache named [com.zhumeng.dream.security.ShiroDbRealm.authorizationCache]
+2016-08-04 12:57:18,025 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,079 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'com.zhumeng.dream.security.CaptchaFormAuthenticationFilter#1d7dfda' of type [class com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,094 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'org.apache.shiro.web.filter.authc.LogoutFilter#1a99b9a' of type [class org.apache.shiro.web.filter.authc.LogoutFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,094 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'util:map#26a58b' of type [class org.springframework.beans.factory.config.MapFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,094 [main] INFO  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean 'util:map#26a58b' of type [class java.util.LinkedHashMap] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-04 12:57:18,175 [main] INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1b531a1: defining beans [jCaptchaFilter,entityInterceptor,adminDaoImpl,roleDaoImpl,adminServiceImpl,roleServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,freemarkerManager,captchaService,sessionFactory,transactionManager,jdbcTransactionManager,jdbcTemplate,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,com.zhumeng.dream.util.spring.SpringContextHolder#0,propertyConfigurer,dataSource,securityManager,shiroDbRealm,shiroFilter,shiroEhcacheManager,lifecycleBeanPostProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2016-08-04 12:57:18,179 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 3289 ms
+2016-08-04 12:57:18,195 [main] INFO  [/] - org.tuckey.web.filters.urlrewrite.UrlRewriteFilter ERROR: unable to find urlrewrite conf file at /WEB-INF/urlrewrite.xml
+2016-08-04 12:57:18,210 [main] DEBUG [org.apache.shiro.spring.web.ShiroFilterFactoryBean] - Found filter chain candidate filter 'jCaptchaFilter'
+2016-08-04 12:57:18,210 [main] DEBUG [org.apache.shiro.spring.web.ShiroFilterFactoryBean] - Creating Shiro Filter instance.
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/login.action] from String definition [authc]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/login.action] to filter [authc] with config [null]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/logout] from String definition [logout]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/logout] to filter [logout] with config [null]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/template/**] from String definition [anon]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/template/**] to filter [anon] with config [null]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/admin!list.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!list.action] to filter [authc] with config [null]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!list.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/admin!save.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!save.action] to filter [authc] with config [null]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/admin!save.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/role!list.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!list.action] to filter [authc] with config [null]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!list.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/role!save.action] from String definition [authc,perms[ROLE_SYSTEM_MENU]]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!save.action] to filter [authc] with config [null]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/role!save.action] to filter [perms] with config [ROLE_SYSTEM_MENU]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/bms/**] from String definition [authc]
+2016-08-04 12:57:18,226 [main] DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/bms/**] to filter [authc] with config [null]
+2016-08-04 12:57:18,411 [main] INFO  [com.opensymphony.xwork2.config.providers.XmlConfigurationProvider] - Parsing configuration file [struts-default.xml]
+2016-08-04 12:57:18,479 [main] INFO  [com.opensymphony.xwork2.config.providers.XmlConfigurationProvider] - Parsing configuration file [struts-plugin.xml]
+2016-08-04 12:57:18,495 [main] INFO  [com.opensymphony.xwork2.config.providers.XmlConfigurationProvider] - Parsing configuration file [struts.xml]
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2016-08-04 12:57:18,495 [main] INFO  [org.apache.struts2.config.BeanSelectionProvider] - Loading global messages from [i18n]
+2016-08-04 12:57:18,511 [main] INFO  [org.apache.struts2.spring.StrutsSpringObjectFactory] - Initializing Struts-Spring integration...
+2016-08-04 12:57:18,511 [main] INFO  [com.opensymphony.xwork2.spring.SpringObjectFactory] - Setting autowire strategy to name
+2016-08-04 12:57:18,511 [main] INFO  [org.apache.struts2.spring.StrutsSpringObjectFactory] - ... initialized Struts-Spring integration successfully
+2016-08-04 12:57:19,058 [main] INFO  [/] -  [CompressingFilter/1.7] CompressingFilter has initialized
+2016-08-04 12:57:19,096 [main] INFO  [org.mortbay.log] - Started SocketConnector@0.0.0.0:8081
+2016-08-04 12:57:41,349 [25498088@qtp-28826403-5] INFO  [com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] - username=hs;Host=0:0:0:0:0:0:0:1
+2016-08-04 12:57:41,486 [25498088@qtp-28826403-5] INFO  [org.springframework.orm.hibernate3.HibernateTransactionManager] - Using DataSource [org.apache.commons.dbcp.BasicDataSource@14dc873] of Hibernate SessionFactory for HibernateTransactionManager
+2016-08-04 12:57:41,765 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - binding 'hs' to parameter: 1
+2016-08-04 12:57:41,849 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - Looked up AuthenticationInfo [null] from doGetAuthenticationInfo
+2016-08-04 12:57:41,849 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - No AuthenticationInfo found for submitted AuthenticationToken [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - hs, rememberMe=false (0:0:0:0:0:0:0:1)].  Returning null.
+2016-08-04 12:57:41,849 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 04:57:41 GMT]
+2016-08-04 12:57:50,854 [25498088@qtp-28826403-5] INFO  [com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] - username=hs;Host=0:0:0:0:0:0:0:1
+2016-08-04 12:57:50,855 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - binding 'hs' to parameter: 1
+2016-08-04 12:57:50,859 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - Looked up AuthenticationInfo [null] from doGetAuthenticationInfo
+2016-08-04 12:57:50,859 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - No AuthenticationInfo found for submitted AuthenticationToken [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - hs, rememberMe=false (0:0:0:0:0:0:0:1)].  Returning null.
+2016-08-04 12:57:50,859 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 04:57:50 GMT]
+2016-08-04 12:59:27,338 [25498088@qtp-28826403-5] INFO  [com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] - username=admin;Host=0:0:0:0:0:0:0:1
+2016-08-04 12:59:27,340 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - binding 'admin' to parameter: 1
+2016-08-04 12:59:27,340 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.LongType] - returning '1' as column: id0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning '2013-01-01 00:00:00' as column: create2_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: modify3_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '软件部' as column: department0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '512162086@qq.com' as column: email0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is6_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is7_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is8_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning null as column: locked9_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: login10_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.IntegerType] - returning '0' as column: login11_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '0:0:0:0:0:0:0:1' as column: login12_0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '管理员' as column: name0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d8' as column: openid0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning 'e10adc3949ba59abbe56e057f20f883e' as column: password0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.LongType] - returning '68' as column: supplierid0_
+2016-08-04 12:59:27,356 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning 'admin' as column: username0_
+2016-08-04 12:59:27,487 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - Looked up AuthenticationInfo [admin] from doGetAuthenticationInfo
+2016-08-04 12:59:27,487 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - AuthenticationInfo caching is disabled for info [admin].  Submitted token: [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - admin, rememberMe=false (0:0:0:0:0:0:0:1)].
+2016-08-04 12:59:27,502 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Performing credentials equality check for tokenCredentials of type [org.apache.shiro.crypto.hash.SimpleHash and accountCredentials of type [org.apache.shiro.crypto.hash.SimpleHash]
+2016-08-04 12:59:27,502 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Both credentials arguments can be easily converted to byte arrays.  Performing array equals comparison
+2016-08-04 12:59:27,502 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 04:59:27 GMT]
+2016-08-04 12:59:36,619 [9933378@qtp-28826403-2] INFO  [com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] - username=admin;Host=0:0:0:0:0:0:0:1
+2016-08-04 12:59:36,632 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding 'admin' to parameter: 1
+2016-08-04 12:59:36,634 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '1' as column: id0_
+2016-08-04 12:59:36,635 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2013-01-01 00:00:00' as column: create2_0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: modify3_0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '软件部' as column: department0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '512162086@qq.com' as column: email0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is6_0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is7_0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is8_0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning null as column: locked9_0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: login10_0_
+2016-08-04 12:59:36,637 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.IntegerType] - returning '0' as column: login11_0_
+2016-08-04 12:59:36,638 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '0:0:0:0:0:0:0:1' as column: login12_0_
+2016-08-04 12:59:36,638 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '管理员' as column: name0_
+2016-08-04 12:59:36,638 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d8' as column: openid0_
+2016-08-04 12:59:36,638 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'e10adc3949ba59abbe56e057f20f883e' as column: password0_
+2016-08-04 12:59:36,638 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '68' as column: supplierid0_
+2016-08-04 12:59:36,638 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'admin' as column: username0_
+2016-08-04 12:59:36,641 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - Looked up AuthenticationInfo [admin] from doGetAuthenticationInfo
+2016-08-04 12:59:36,641 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - AuthenticationInfo caching is disabled for info [admin].  Submitted token: [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - admin, rememberMe=false (0:0:0:0:0:0:0:1)].
+2016-08-04 12:59:36,641 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Performing credentials equality check for tokenCredentials of type [org.apache.shiro.crypto.hash.SimpleHash and accountCredentials of type [org.apache.shiro.crypto.hash.SimpleHash]
+2016-08-04 12:59:36,641 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Both credentials arguments can be easily converted to byte arrays.  Performing array equals comparison
+2016-08-04 12:59:36,641 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 04:59:36 GMT]
+2016-08-04 12:59:59,553 [25498088@qtp-28826403-5] INFO  [com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] - username=admin;Host=0:0:0:0:0:0:0:1
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - binding 'admin' to parameter: 1
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.LongType] - returning '1' as column: id0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning '2013-01-01 00:00:00' as column: create2_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: modify3_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '软件部' as column: department0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '512162086@qq.com' as column: email0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is6_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is7_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is8_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning null as column: locked9_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: login10_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.IntegerType] - returning '0' as column: login11_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '0:0:0:0:0:0:0:1' as column: login12_0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning '管理员' as column: name0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d8' as column: openid0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning 'e10adc3949ba59abbe56e057f20f883e' as column: password0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.LongType] - returning '68' as column: supplierid0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] TRACE [org.hibernate.type.StringType] - returning 'admin' as column: username0_
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - Looked up AuthenticationInfo [admin] from doGetAuthenticationInfo
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - AuthenticationInfo caching is disabled for info [admin].  Submitted token: [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - admin, rememberMe=false (0:0:0:0:0:0:0:1)].
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Performing credentials equality check for tokenCredentials of type [org.apache.shiro.crypto.hash.SimpleHash and accountCredentials of type [org.apache.shiro.crypto.hash.SimpleHash]
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Both credentials arguments can be easily converted to byte arrays.  Performing array equals comparison
+2016-08-04 12:59:59,564 [25498088@qtp-28826403-5] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 04:59:59 GMT]
+2016-08-04 13:08:25,676 [9933378@qtp-28826403-2] INFO  [com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] - username=zdh;Host=0:0:0:0:0:0:0:1
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding 'zdh' to parameter: 1
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '2' as column: id0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2013-01-01 00:00:00' as column: create2_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-19 11:42:00' as column: modify3_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '研发部' as column: department0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '512162086@qq.com' as column: email0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is6_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is7_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is8_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning null as column: locked9_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-19 11:42:00' as column: login10_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.IntegerType] - returning '0' as column: login11_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '0:0:0:0:0:0:0:1' as column: login12_0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '管理员' as column: name0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d9' as column: openid0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d8' as column: password0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '68' as column: supplierid0_
+2016-08-04 13:08:25,690 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'zdh' as column: username0_
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - Looked up AuthenticationInfo [zdh] from doGetAuthenticationInfo
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - AuthenticationInfo caching is disabled for info [zdh].  Submitted token: [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - zdh, rememberMe=false (0:0:0:0:0:0:0:1)].
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Performing credentials equality check for tokenCredentials of type [org.apache.shiro.crypto.hash.SimpleHash and accountCredentials of type [org.apache.shiro.crypto.hash.SimpleHash]
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Both credentials arguments can be easily converted to byte arrays.  Performing array equals comparison
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.authc.AbstractAuthenticator] - Authentication successful for token [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - zdh, rememberMe=false (0:0:0:0:0:0:0:1)].  Returned account [zdh]
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.subject.support.DefaultSubjectContext] - No SecurityManager available in subject context map.  Falling back to SecurityUtils.getSecurityManager() lookup.
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.mgt.DefaultSecurityManager] - Context already contains a session.  Returning.
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.subject.support.DefaultSubjectContext] - No SecurityManager available in subject context map.  Falling back to SecurityUtils.getSecurityManager() lookup.
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 05:08:25 GMT]
+2016-08-04 13:08:25,705 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.mgt.AbstractRememberMeManager] - AuthenticationToken did not indicate RememberMe is requested.  RememberMe functionality will not be executed for corresponding account.
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding 'zdh' to parameter: 1
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '2' as column: id0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2013-01-01 00:00:00' as column: create2_0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-19 11:42:00' as column: modify3_0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '研发部' as column: department0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '512162086@qq.com' as column: email0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is6_0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is7_0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is8_0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning null as column: locked9_0_
+2016-08-04 13:08:26,592 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-19 11:42:00' as column: login10_0_
+2016-08-04 13:08:26,607 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.IntegerType] - returning '0' as column: login11_0_
+2016-08-04 13:08:26,607 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '0:0:0:0:0:0:0:1' as column: login12_0_
+2016-08-04 13:08:26,607 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '管理员' as column: name0_
+2016-08-04 13:08:26,607 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d9' as column: openid0_
+2016-08-04 13:08:26,607 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d8' as column: password0_
+2016-08-04 13:08:26,607 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '68' as column: supplierid0_
+2016-08-04 13:08:26,607 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'zdh' as column: username0_
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - binding '2016-08-04 13:08:26' to parameter: 1
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding '研发部' to parameter: 2
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding '512162086@qq.com' to parameter: 3
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - binding 'true' to parameter: 4
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - binding 'true' to parameter: 5
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - binding 'true' to parameter: 6
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - binding null to parameter: 7
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - binding '2016-08-04 13:08:26' to parameter: 8
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.IntegerType] - binding '0' to parameter: 9
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding '0:0:0:0:0:0:0:1' to parameter: 10
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding '管理员' to parameter: 11
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding 'efd9d1b8bfb00e8e3647990f7d74d1d9' to parameter: 12
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding 'efd9d1b8bfb00e8e3647990f7d74d1d8' to parameter: 13
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - binding '68' to parameter: 14
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding 'zdh' to parameter: 15
+2016-08-04 13:08:26,623 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - binding '2' to parameter: 16
+2016-08-04 13:08:26,723 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - binding '2' to parameter: 1
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '2' as column: id3_0_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2015-01-02 00:22:23' as column: create2_3_0_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2015-01-02 00:22:23' as column: modify3_3_0_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'ROLE_GOODS_MENU' as column: authority4_3_0_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'd' as column: descript5_3_0_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'false' as column: is6_3_0_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '商品管理员' as column: name3_0_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '2' as column: admin1_0_1_
+2016-08-04 13:08:26,742 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '2' as column: role2_1_
+2016-08-04 13:08:47,130 [14799183@qtp-28826403-9] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 05:08:47 GMT]
+2016-08-04 13:08:47,141 [14799183@qtp-28826403-9] DEBUG [org.apache.shiro.mgt.DefaultSecurityManager] - Logging out subject with primary principal {}zdh
+2016-08-04 13:08:58,386 [9933378@qtp-28826403-2] INFO  [com.zhumeng.dream.security.CaptchaFormAuthenticationFilter] - username=admin;Host=0:0:0:0:0:0:0:1
+2016-08-04 13:08:58,389 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - binding 'admin' to parameter: 1
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '1' as column: id0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2013-01-01 00:00:00' as column: create2_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: modify3_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '软件部' as column: department0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '512162086@qq.com' as column: email0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is6_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is7_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.BooleanType] - returning 'true' as column: is8_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning null as column: locked9_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.TimestampType] - returning '2016-07-20 14:46:28' as column: login10_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.IntegerType] - returning '0' as column: login11_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '0:0:0:0:0:0:0:1' as column: login12_0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning '管理员' as column: name0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'efd9d1b8bfb00e8e3647990f7d74d1d8' as column: openid0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'e10adc3949ba59abbe56e057f20f883e' as column: password0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.LongType] - returning '68' as column: supplierid0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] TRACE [org.hibernate.type.StringType] - returning 'admin' as column: username0_
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - Looked up AuthenticationInfo [admin] from doGetAuthenticationInfo
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.realm.AuthenticatingRealm] - AuthenticationInfo caching is disabled for info [admin].  Submitted token: [com.zhumeng.dream.security.CaptchaUsernamePasswordToken - admin, rememberMe=false (0:0:0:0:0:0:0:1)].
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Performing credentials equality check for tokenCredentials of type [org.apache.shiro.crypto.hash.SimpleHash and accountCredentials of type [org.apache.shiro.crypto.hash.SimpleHash]
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.authc.credential.SimpleCredentialsMatcher] - Both credentials arguments can be easily converted to byte arrays.  Performing array equals comparison
+2016-08-04 13:08:58,390 [9933378@qtp-28826403-2] DEBUG [org.apache.shiro.web.servlet.SimpleCookie] - Added HttpServletResponse Cookie [rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 03-Aug-2016 05:08:58 GMT]

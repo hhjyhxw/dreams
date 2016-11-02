@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.zhumeng.dream.entity.Role;
 import com.zhumeng.dream.module.bms.dao.RoleDao;
 import com.zhumeng.dream.orm.hibernate.HibernateDao;
-@Repository("roleDaoImpl")
+@Repository//("roleDaoImpl")
 public class RoleDaoImpl  extends HibernateDao<Role, Long> implements RoleDao{
 
 	/**

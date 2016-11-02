@@ -17,15 +17,15 @@ import com.zhumeng.dream.orm.PropertyFilter;
 import com.zhumeng.dream.util.encode.Digests;
 import com.zhumeng.dream.util.encode.Encodes;
 @SuppressWarnings("restriction")
-@Service("adminServiceImpl")
+@Service
 @Transactional
 public class AdminServiceImpl implements AdminService{
 	public static final int HASH_INTERATIONS = 1024;
 	private static final int SALT_SIZE = 8;
 	
-	@Resource(name="adminDaoImpl")
+	@Resource//(name="adminDaoImpl")
 	private AdminDao adminDaoImpl;
-	@Resource(name="roleDaoImpl")
+	@Resource//(name="roleDaoImpl")
 	private RoleDao roleDaoImpl;
 	
 	public Admin getAdminByLoginName(String username){
@@ -88,8 +88,20 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	public String delete(Long[] ids) {
-		// TODO Auto-generated method stub
-		return null;
+		String result = null;;
+		if(ids != null){
+			for(Long pk : ids){
+				Admin admin=this.getAdmin(pk);
+				if(admin.getIsAccountLocked()){
+					result = "锁定用户不能删除";
+					break;
+				}else{
+					AdminAction.mergeByCheckedIds(admin.getRoleList(), null, Role.class);
+					adminDaoImpl.delete(admin);
+				}
+			}
+		}
+		return result;
 	}
 
 }

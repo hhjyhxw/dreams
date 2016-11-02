@@ -55,12 +55,7 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter> 
-	<!--
-	<filter>
-		<filter-name>jCaptchaFilter</filter-name>
-		<filter-class>com.zhumeng.dream.captcha.JCaptchaFilter</filter-class>
-	</filter>
-	-->
+
 	<filter-mapping>
 		<filter-name>jCaptchaFilter</filter-name>
 		<url-pattern>/captcha.jpg</url-pattern>

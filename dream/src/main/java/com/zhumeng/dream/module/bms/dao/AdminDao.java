@@ -22,4 +22,12 @@ public interface AdminDao{
 
 	Admin get(String username);
 
+	/** 
+	 * @author   : zdh
+	 * @date     : 创建时间：2016-9-8 上午9:30:23  
+	 * @version  : 1.0  
+	 * @param admin   : 
+	*/
+	void delete(Admin admin);
+
 }

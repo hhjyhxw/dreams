@@ -7,9 +7,9 @@ import java.util.List;
 	 * @filename ：QueryResult.java   
 	 * @description :查询结果集
 	 * @version ：   V 1.0
-	 * @author : lizhong
+	 * @author : 
 	 * @create : 2011-8-1 下午01:15:12  
-	 * @Copyright: hyzy Corporation 2014    
+	 * @Copyright: 
 	 * 
 	 * Modification History:
 	 * 	Date			Author			Version			Description

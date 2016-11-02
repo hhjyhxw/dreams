@@ -11,7 +11,7 @@ import com.zhumeng.dream.orm.Page;
 import com.zhumeng.dream.orm.PropertyFilter;
 import com.zhumeng.dream.orm.hibernate.HibernateDao;
 
-@Repository("adminDaoImpl")
+@Repository//("adminDaoImpl")
 public class AdminDaoImpl   extends HibernateDao<Admin, Long> implements AdminDao{
 
 	/**

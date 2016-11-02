@@ -84,11 +84,12 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		
 		Admin user = adminServiceImpl.getAdminByLoginName(token.getUsername());
 		if (user != null) {
-//			byte[] salt = Encodes.decodeHex(user.getPassword());
+			if(!user.getIsAccountEnabled()){
+				
+				throw new AccountNotAbleException("用户未启用.");
+			}
 			return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getUsername(), user.getName()),
 			user.getPassword(),  getName());
-//			return new SimpleAuthenticationInfo(user.getUsername(),
-//					user.getPassword(), getName());
 		} else {
 			return null;
 		}
